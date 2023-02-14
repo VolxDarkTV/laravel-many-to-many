@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
     {
         return [
             'code' -> fake() -> regexify('[A-Z][0-9]{4}'),
-            'name' -> fake() -> words(1),
+            'name' -> fake() -> words(rand(1, 2), true),
             'description' -> fake() -> text(rand(50, 100)),
         ];
     }
