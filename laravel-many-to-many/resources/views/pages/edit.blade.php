@@ -60,7 +60,7 @@
                     <label for="{{ $category -> id }}">{{ $category -> name }}</label>
                     <br>
                 @endforeach
-                <input type="submit" value="Create">
+                <input type="submit" value="Update">
 
             </form>
 
