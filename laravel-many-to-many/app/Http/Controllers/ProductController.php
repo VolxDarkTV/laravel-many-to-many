@@ -12,18 +12,21 @@ use App\Models\Category;
 
 class ProductController extends Controller
 {
+    // ---Show
     public function productShow(Product $product){
 
         return view('pages.productShow', compact('product'));
     }
-
+    // ---Create
     public function productCreate(){
 
         $typologies = Typology::all();
         $categories = Category::all();
 
-        return view('pages.create', compact('typologies', 'categories'));
+        return view('pages.create', 
+            compact('typologies', 'categories'));
     }
+    // ---Store
     public function productStore(Request $request){
 
         $data = $request -> validate([
@@ -51,4 +54,39 @@ class ProductController extends Controller
 
         return redirect() -> route('home');
     }
+
+    // ---Edit
+    public function productEdit(Product $product){
+
+        $typologies = Typology::all();
+        $categories = Category::all();
+
+        return view('pages.edit', 
+            compact('product', 'typologies', 'categories'));
+    }
+    // ---Update
+    public function productUpdate(Request $request, Product $product){
+
+        $data = $request -> validate([
+            'name' => 'required|string',
+            'description' => 'nullable|string',
+            'price' => 'required|integer',
+            'weight' => 'required|integer',
+            'typology' => 'required|string',
+            'categories' => 'required|array',
+        ]);
+
+        $product -> update($data);
+        $typology = Typology::find($data['typology']);
+
+        $product -> typology() -> associate($typology);
+        $product -> save();
+
+        $categories = Category::find($data['categories']);
+        $product -> categories() -> sync($categories);
+
+        return redirect() -> route('home');
+    }
+
+
 }

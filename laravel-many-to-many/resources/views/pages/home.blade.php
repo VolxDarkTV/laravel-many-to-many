@@ -18,8 +18,10 @@
                                 [{{ $product -> id }}] {{ $product -> name }}
                                 - Digital: {{$product -> typology -> digital ? 'Yes' : 'No'}}
                             </div>
-                            <div class="d-flex">
+                            {{-- links --}}
+                            <div class="d-flex align-items-center gap-3">
                                 <a class="btn btn-success rounded-pill" href="{{ route('product.show', $product) }}">Go</a> 
+                                <a class="btn btn-warning rounded-pill" href="{{ route('product.edit', $product) }}">Edit</a>
                             </div>
                         </li> 
                    @endforeach
