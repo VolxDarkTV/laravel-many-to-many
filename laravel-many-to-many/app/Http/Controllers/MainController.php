@@ -15,8 +15,4 @@ class MainController extends Controller
         return view('pages.home', compact('categories'));
     }
 
-    public function productShow(Category $category){
-
-        return view('pages.productShow', compact('category'));
-    }
 }

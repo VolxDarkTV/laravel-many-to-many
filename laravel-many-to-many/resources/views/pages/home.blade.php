@@ -9,7 +9,7 @@
     <div class="container">
             <h1>Home</h1>
             @foreach ($categories as $category)
-                <h2>{{$category -> name}}</h2>
+                <h2>[{{$category -> id}}]{{$category -> name}}</h2>
                 <div class="row row-cols-4">
                     @foreach ($category -> products as $product)
                         <li class="card">
