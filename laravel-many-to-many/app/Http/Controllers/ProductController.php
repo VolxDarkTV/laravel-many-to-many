@@ -23,7 +23,7 @@ class ProductController extends Controller
         $typologies = Typology::all();
         $categories = Category::all();
 
-        return view('pages.create', 
+        return view('pages.productCreate', 
             compact('typologies', 'categories'));
     }
     // ---Store
@@ -61,7 +61,7 @@ class ProductController extends Controller
         $typologies = Typology::all();
         $categories = Category::all();
 
-        return view('pages.edit', 
+        return view('pages.productEdit', 
             compact('product', 'typologies', 'categories'));
     }
     // ---Update

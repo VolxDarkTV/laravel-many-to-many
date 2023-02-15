@@ -9,10 +9,10 @@
         <div class="container">
             <h2>Show</h2>
             <div>
-                <h6>{{$product -> name}}</h6>
-                <h6>{{$product -> description}}</h6>
-                <h6>{{$product -> price}}</h6>
-                <h6>{{$product -> weight}}</h6>
+                <h6>Name: {{$product -> name}}</h6>
+                <h6>Description: {{$product -> description}}</h6>
+                <h6>Price: {{$product -> price}}</h6>
+                <h6>Weight: {{$product -> weight}}</h6>
             </div>
 
         </div>
