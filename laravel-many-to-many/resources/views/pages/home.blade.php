@@ -8,6 +8,7 @@
 <section class="container-fluid">
     <div class="container">
             <h1>Home</h1>
+            <a href="{{ route('product.create') }}">create</a>
             @foreach ($categories as $category)
                 <h2>[{{$category -> id}}]{{$category -> name}}</h2>
                 <div class="row row-cols-4">
