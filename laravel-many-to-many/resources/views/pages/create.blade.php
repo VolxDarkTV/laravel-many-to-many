@@ -33,7 +33,14 @@
                         <option value="{{ $typology -> id }}">{{ $typology -> name }}</option>
                     @endforeach
                 </select>
-                <input type="submit" value="create">
+                <br>
+                {{-- CheckBox --}}
+                @foreach ($categories as $category)
+                    <input type="checkbox" name="categories[]" id="{{ $category -> id }}" value="{{ $category -> id }}">
+                    <label for="{{ $category -> id }}">{{ $category -> name }}</label>
+                    <br>
+                @endforeach
+                <input type="submit" value="Create">
 
             </form>
 
